@@ -3,16 +3,17 @@ import "./App.css";
 import MostRecent from "./components/MostRecent";
 import LastMonth from "./components/LastMonth";
 import LastYear from "./components/LastYear";
+import createGraphData from "./utils/utils";
 
 class App extends Component {
   state = {
     quakes: [],
     pastMonth: [],
-    pastYear: []
+    pastYear: [],
+    dataForGraphing: {}
   };
 
   render() {
-    console.log(this.state.pastMonth);
     return (
       <main>
         <h1>EARTHQUAKES</h1>
@@ -27,7 +28,7 @@ class App extends Component {
           </ul>
         </section>
         <section id="last month">
-          <LastMonth pastMonth={this.state.pastMonth} />
+          <LastMonth dataForGraphing={this.state.dataForGraphing} />
         </section>
         <section id="last year">
           <h2>Biggest in the Last Year</h2>
@@ -39,15 +40,17 @@ class App extends Component {
     );
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     this.recentQuakes().then(quakes => {
       return this.setState({ quakes: quakes.features });
     });
 
-    this.lastMonth().then(lastMonthQuakes => {
-      return this.setState({ pastMonth: lastMonthQuakes.features });
-    });
-  };
+    this.lastMonth()
+      .then(lastMonthQuakes => {
+        return this.setState({ pastMonth: lastMonthQuakes.features });
+      })
+      .then(whatever => this.formatData());
+  }
 
   recentQuakes = () => {
     const url =
@@ -62,6 +65,14 @@ class App extends Component {
       "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=magnitude&limit=10";
     return fetch(url).then(response => {
       return response.json();
+    });
+  };
+
+  formatData = () => {
+    console.log(this.state.pastMonth);
+
+    this.setState({
+      dataForGraphing: createGraphData(this.state.pastMonth)
     });
   };
 }

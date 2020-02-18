@@ -1,21 +1,32 @@
 const createGraphData = array => {
   const newObj = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
       {
-        label: "Earthquakes",
-        backgroundColor: "rgba(255,99,132,0.2)",
-        borderColor: "rgba(255,99,132,1)",
-        borderWidth: 1,
-        hoverBackgroundColor: "rgba(255,99,132,0.4)",
-        hoverBorderColor: "rgba(255,99,132,1)",
-        data: [65, 59, 80, 81, 56, 55, 40]
+        data: [],
+        backgroundColor: [
+          "#FF6384",
+          "#4BC0C0",
+          "#FFCE56",
+          "#E7E9ED",
+          "#36A2EB",
+          "#FF6384",
+          "#4BC0C0",
+          "#FFCE56",
+          "#E7E9ED",
+          "#36A2EB",
+          "#E7E9ED",
+          "#36A2EB"
+        ],
+        label: "My dataset" // for legend
       }
-    ]
+    ],
+    labels: []
   };
-
-
+  array.forEach(earthquake => {
+    newObj.labels.push(earthquake.properties.place);
+    newObj.datasets[0].data.push(earthquake.properties.mag);
+  });
+  return newObj;
 };
 
-
-export default createGraphData
+export default createGraphData;
