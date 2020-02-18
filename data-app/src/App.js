@@ -12,6 +12,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.pastMonth);
     return (
       <main>
         <h1>EARTHQUAKES</h1>
@@ -26,10 +27,7 @@ class App extends Component {
           </ul>
         </section>
         <section id="last month">
-          <h2>Biggest Earthquakes in the Last Month</h2>
-          <section>
-            <LastMonth pastMonth={this.state.pastMonth} />
-          </section>
+          <LastMonth pastMonth={this.state.pastMonth} />
         </section>
         <section id="last year">
           <h2>Biggest in the Last Year</h2>
