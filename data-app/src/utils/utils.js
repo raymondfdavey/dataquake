@@ -17,7 +17,7 @@ const createGraphData = array => {
           "#E7E9ED",
           "#36A2EB"
         ],
-        label: "Our dataset" // for legend
+        label: "Earthquakes by magnitude" // for legend
       }
     ],
     labels: []
