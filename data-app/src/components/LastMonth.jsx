@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { Component } from "react";
 
-function LastMonth(props) {
-  return (
-    <div>
-      
-    </div>
-  );
+class LastMonth extends Component {
+  state = {
+    userInfo: []
+  };
+
+  render() {
+    return this.state.userInfo.length
+      ? null
+      : this.props.pastMonth.map(quake => console.log(quake));
+  }
 }
 
 export default LastMonth;

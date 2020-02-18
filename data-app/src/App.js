@@ -6,7 +6,9 @@ import LastYear from "./components/LastYear";
 
 class App extends Component {
   state = {
-    quakes: []
+    quakes: [],
+    pastMonth: [],
+    pastYear: []
   };
 
   render() {
@@ -25,15 +27,15 @@ class App extends Component {
         </section>
         <section id="last month">
           <h2>Biggest Earthquakes in the Last Month</h2>
-          <body>
-            <LastMonth />
-          </body>
+          <section>
+            <LastMonth pastMonth={this.state.pastMonth} />
+          </section>
         </section>
         <section id="last year">
           <h2>Biggest in the Last Year</h2>
-          <body>
+          <section>
             <LastYear />
-          </body>
+          </section>
         </section>
       </main>
     );
@@ -41,14 +43,25 @@ class App extends Component {
 
   componentDidMount = () => {
     this.recentQuakes().then(quakes => {
-      console.log(quakes.features);
       return this.setState({ quakes: quakes.features });
+    });
+
+    this.lastMonth().then(lastMonthQuakes => {
+      return this.setState({ pastMonth: lastMonthQuakes.features });
     });
   };
 
   recentQuakes = () => {
     const url =
       "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=5";
+    return fetch(url).then(response => {
+      return response.json();
+    });
+  };
+
+  lastMonth = () => {
+    const url =
+      "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=magnitude&limit=10";
     return fetch(url).then(response => {
       return response.json();
     });
