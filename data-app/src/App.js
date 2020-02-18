@@ -16,26 +16,34 @@ class App extends Component {
   render() {
     return (
       <main>
-        <h1>EARTHQUAKES</h1>
-        <section id="most recent">
-          <h2>Most Recent Earthquakes</h2>
-          <ul>
-            {this.state.quakes.length ? (
-              <MostRecent recentQuakes={this.state.quakes} />
-            ) : (
-              "most recent earthquakes..."
-            )}
-          </ul>
-        </section>
-        <section id="last month">
-          <LastMonth dataForGraphing={this.state.dataForGraphing} />
-        </section>
-        <section id="last year">
-          <h2>Biggest in the Last Year</h2>
-          <section>
-            <LastYear />
+        <header>
+          <h1>EARTHQUAKES</h1>
+        </header>
+
+        <body>
+          <section id="mostrecent">
+            <h2>Most Recent Earthquakes</h2>
+            <ul id="biglist">
+              {this.state.quakes.length ? (
+                <MostRecent recentQuakes={this.state.quakes} />
+              ) : (
+                "most recent earthquakes..."
+              )}
+            </ul>
           </section>
-        </section>
+          <section id="lastmonth">
+            <LastMonth
+              dataForGraphing={this.state.dataForGraphing}
+              
+            />
+          </section>
+          {/* <section id="last year">
+            <h2>Biggest in the Last Year</h2>
+            <section>
+              <LastYear />
+            </section>
+          </section> */}
+        </body>
       </main>
     );
   }

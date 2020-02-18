@@ -7,7 +7,7 @@ function MostRecent(props) {
         const { properties } = quake;
         const convertedDate = new Date(properties.time);
         return (
-          <ul key={properties.code}>
+          <ul key={properties.code }id="smalllist">
             <li>Location: {properties.place}</li>
             <li>Magnitude: {properties.mag}</li>
             <li>Time: {convertedDate.toGMTString()}</li>

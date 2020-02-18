@@ -1,3 +1,10 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:lemonchiffon;
+  color:darkslategray}
 .App {
   text-align: center;
 }
@@ -35,4 +42,39 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: auto;
+}
+header {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+#mostrecent {
+  align-self: flex-start;
+}
+#lastmonth {
+  align-self: flex-start;
+  margin: 50px;
+  width: 500px;
+}
+h2 {
+  padding-left: 60px;
+}
+#biglist {
+  display: flex;
+  flex-direction: column;
+}
+#smalllist {
+  height: 75px;
+  margin: 10px auto;
+  width: 500px;
+  font-size: smaller;
 }
