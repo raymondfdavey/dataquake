@@ -22,7 +22,7 @@ class App extends Component {
 
         <body>
           <section id="mostrecent">
-            <h2>Most Recent Earthquakes</h2>
+            <h2 id="last5title">Most Recent Earthquakes</h2>
             <ul id="biglist">
               {this.state.quakes.length ? (
                 <MostRecent recentQuakes={this.state.quakes} />
@@ -31,12 +31,9 @@ class App extends Component {
               )}
             </ul>
           </section>
-          <section id="lastmonth">
-            <LastMonth
-              dataForGraphing={this.state.dataForGraphing}
-              
-            />
-          </section>
+          <div id="lastmonth">
+            <LastMonth dataForGraphing={this.state.dataForGraphing} />
+          </div>
           {/* <section id="last year">
             <h2>Biggest in the Last Year</h2>
             <section>
