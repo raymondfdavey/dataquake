@@ -49,7 +49,7 @@ body {
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
-  width: auto;
+  /* width: auto; */
 }
 header {
   height: 60px;
@@ -62,11 +62,15 @@ header {
 }
 #lastmonth {
   align-self: flex-start;
-  margin: 50px;
-  width: 500px;
+
 }
-h2 {
-  padding-left: 60px;
+#last30title{
+  margin-left: 166px 
+  ;
+}
+#last5title{
+ margin-left: 66px
+  ;
 }
 #biglist {
   display: flex;
@@ -78,3 +82,4 @@ h2 {
   width: 500px;
   font-size: smaller;
 }
+
