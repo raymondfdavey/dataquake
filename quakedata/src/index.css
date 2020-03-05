@@ -1,0 +1,14 @@
+.leaflet-container {
+  width: 80%;
+  height: 60vh;
+}
+
+.mapSection {
+  display: flex;
+  border: solid;
+}
+
+.bottomBar {
+  display: flex;
+  border: solid;
+}
