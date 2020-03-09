@@ -1,15 +1,4 @@
 {
-  "type": "FeatureCollection",
-  "metadata": {
-    "generated": 1583404957000,
-    "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&limit=5",
-    "title": "USGS Earthquakes",
-    "status": 200,
-    "api": "1.8.1",
-    "limit": 5,
-    "offset": 1,
-    "count": 5
-  },
   "features": [
     {
       "type": "Feature",

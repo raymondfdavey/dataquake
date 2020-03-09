@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import MostRecent from "./components/MostRecent";
 import LastMonth from "./components/LastMonth";
-import LastYear from "./components/LastYear";
 import createGraphData from "./utils/utils";
 
 class App extends Component {
